@@ -1,0 +1,136 @@
+/* ***************************************************************
+ * Nom ......... : src/app/globals.css
+ * Rôle ........ : Définir les styles globaux, les variables CSS,
+ *                 les règles générales de mise en page ainsi que
+ *                 les classes réutilisables du dashboard bancaire.
+ * Auteur ...... : Dominique ERIN
+ * Version ..... : V0.1 du 01/08/2026
+ * Licence ..... : Réalisé dans le cadre de l’EC Projet tutoré,
+ *                 Licence 3 Informatique — Université Paris 8 IED.
+ * Compilation . : npm run build
+ * Usage ....... : Feuille de styles importée automatiquement dans
+ *                 le layout principal de l’application Next.js.
+ * *************************************************************** */
+
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --surface: #ffffff;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --muted: #64748b;
+  --border: #e2e8f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: #bfdbfe;
+  color: #172554;
+}
+
+/* Styles communs aux pages du tableau de bord */
+
+.dashboard-card {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background-color: var(--surface);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.page-eyebrow {
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  letter-spacing: 0.025em;
+}
+
+.page-title {
+  margin-top: 0.25rem;
+  color: #020617;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+  letter-spacing: -0.025em;
+}
+
+.page-description {
+  max-width: 48rem;
+  margin-top: 0.5rem;
+  color: #475569;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  color: #334155;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+}
+
+.form-control {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  color: #020617;
+  font: inherit;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.form-control::placeholder {
+  color: #94a3b8;
+}
+
+.form-control:hover {
+  border-color: #94a3b8;
+}
+
+.form-control:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 4px #dbeafe;
+}
+
+@media (min-width: 640px) {
+  .page-title {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .page-description {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}

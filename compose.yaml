@@ -1,0 +1,38 @@
+# ***************************************************************
+# Nom ......... : compose.yaml
+# Rôle ........ : Définir et démarrer le service MongoDB utilisé
+#                 par le backend du dashboard bancaire, configurer
+#                 ses variables d’initialisation, publier le port
+#                 27017 et créer un volume de données persistant.
+# Auteur ...... : Dominique ERIN
+# Version ..... : V0.1 du 31/07/2026
+# Licence ..... : Réalisé dans le cadre de l’EC Projet tutoré,
+#                 Licence 3 Informatique — Université Paris 8 IED.
+# Compilation . : docker compose config
+# Usage ....... : Pour démarrer MongoDB :
+#                 docker compose up -d
+#                 Pour vérifier le service :
+#                 docker compose ps
+#                 Pour l’arrêter sans supprimer les données :
+#                 docker compose down
+# ***************************************************************
+services:
+  mongodb:
+    image: mongo:8
+    container_name: dashboard_bancaire_mongodb
+    restart: no
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
+    external: true
+    name: dashboard_bancaire_mongodb_data

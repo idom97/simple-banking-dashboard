@@ -1,0 +1,47 @@
+// ***************************************************************
+// Nom ......... : tsconfig.json
+// Rôle ........ : Configurer le compilateur TypeScript du frontend
+//                 Next.js, la résolution des modules, le contrôle
+//                 strict des types et l’alias d’importation @/*.
+// Auteur ...... : Dominique ERIN
+// Version ..... : V0.1 du 31/07/2026
+// Licence ..... : Réalisé dans le cadre de l’EC Projet tutoré,
+//                 Licence 3 Informatique — Université Paris 8 IED.
+// Compilation . : npx tsc --noEmit
+// Usage ....... : Fichier lu automatiquement par TypeScript,
+//                 Next.js et les outils de développement.
+// ***************************************************************
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}

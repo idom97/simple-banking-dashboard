@@ -1,0 +1,24 @@
+# Variables d'environnement sensibles
+.env
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Éditeurs
+.vscode/
+.idea/
+
+# Fichiers système
+.DS_Store
